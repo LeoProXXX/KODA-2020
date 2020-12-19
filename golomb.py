@@ -24,12 +24,12 @@ class GolombEncoder:
     def encode(self, s: int):
         k = int(math.ceil(math.log2(self.m)))
     
-        result = GolombEncoder.encode_unary(s//self.m)
+        quotient = GolombEncoder.encode_unary(s//self.m)
 
         if self.m == 1:
-            return result
+            return quotient
 
-        return result + GolombEncoder.encode_binary(s % self.m).zfill(k)
+        return quotient + GolombEncoder.encode_binary(s % self.m).zfill(k)
 
 if __name__ == "__main__":
     for i in range(0,5):
