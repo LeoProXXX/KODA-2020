@@ -1,10 +1,8 @@
 import os
 import glob
-import cv2
 import numpy as np
 
 from PIL import Image
-from Utils import get_concat_h
 from matplotlib import pyplot as plt
 from scipy.stats import entropy as scipy_entropy
 
