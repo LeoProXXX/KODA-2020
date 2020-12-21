@@ -48,7 +48,7 @@ class Loader:
         images = []
         for path in self.artificial_images:
             image = np.asarray(Image.open(path))
-            images.append((image, path))
+            images.append(image)
         return images
 
     def getArtificialImagesAsNumpyArray(self):
