@@ -24,10 +24,6 @@ class GolombCodec:
 
         return result
 
-    # def decode_array(self, arr):
-
-
-
 
 if __name__ == "__main__":
     for i in range(0, 50):
