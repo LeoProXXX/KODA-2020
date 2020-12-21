@@ -27,11 +27,4 @@ def calculate_length(encoded_image) -> float:
 
 
 def calculate_average_length(encoded_image) -> float:
-    length = 0
-
-    x, y = encoded_image.shape
-    for i in range(x):
-        for j in range(y):
-            length += len(encoded_image[i][j])
-
-    return length / encoded_image.size
+    return calculate_length(encoded_image) / encoded_image.size
