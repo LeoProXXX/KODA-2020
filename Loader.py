@@ -33,18 +33,25 @@ class Loader:
     def getNaturalImages(self):
         images = []
         for path in self.natural_images:
-            images.append(Image.open(path))
+            image = np.asarray(Image.open(path))
+            images.append(image)
         return images
     
     def getArtificialImages(self):
         images = []
         for path in self.artificial_images:
-            images.append(Image.open(path))
+            image = np.asarray(Image.open(path))
+            images.append(image)
         return images
     
+    def imageToBits(self, image):
+        image = np.asarray(image, dtype=np.uint8)
+        image = np.unpackbits(image)
+        
+        return image
+    
     def entropy(self, img, base=2): # 2 stands for Shannon entropy
-        image = np.asarray(img)
-        _, counts = np.unique(image, return_counts=True)
+        _, counts = np.unique(img, return_counts=True)
         return scipy_entropy(counts, base=base)
 
 if __name__ == "__main__":

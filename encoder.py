@@ -30,6 +30,12 @@ class GolombEncoder:
             return quotient
 
         return quotient + GolombEncoder.encode_binary(s % self.m).zfill(k)
+    
+    def encodeImage(self, array):
+        result = []
+        for i in array:
+            result.append(self.encode(i))
+        return result
 
 if __name__ == "__main__":
     for i in range(0,5):
