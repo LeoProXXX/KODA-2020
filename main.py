@@ -4,12 +4,13 @@
 # - Porównać entropię ze średnią długością bitową kodu wyjściowego.
 # - Ocenić efektywność algorytmu do kodowania obrazów naturalnych.
 
-from codec import GolombCodec
-from Loader import Loader
-from Utils import calculate_average_length
-from Utils import calculate_length
-from encoder import GolombEncoder
 import numpy as np
+
+from utils import calculate_average_length
+from utils import calculate_length
+from codec import GolombCodec
+from encoder import GolombEncoder
+from loader import Loader
 
 
 def run_test_images():
@@ -35,7 +36,8 @@ def test_natural_images_compression(images):
             length = calculate_length(result)
             avg_len = calculate_average_length(result)
             # print(f'entropia: {loader.entropy(img)} średnia długoś wyjściowego kodu bitowego: {avg_len}')
-            print(f'original length: {w * h * 8}, after compression: {length}, compression ratio: {length / (w * h * 8)}')
+            print(
+                f'original length: {w * h * 8}, after compression: {length}, compression ratio: {length / (w * h * 8)}')
         print()
 
 
@@ -51,7 +53,6 @@ loader = Loader(natural_images_dir="data/obrazy",
 
 # run_test_images()
 test_encoder()
-
 
 loader.generateHistograms()
 
