@@ -1,10 +1,12 @@
 import math 
 
+
 class GolombEncoder:
     def __init__(self, i: int) -> None:
         self.m = 2**i
 
-    def encode_unary(n: int):
+    @staticmethod
+    def encode_unary(n: int) -> str:
         tmp_arr = []
 
         for i in range(n):
@@ -17,11 +19,12 @@ class GolombEncoder:
         result = "".join(tmp_arr_as_string) 
 
         return result
-    
-    def encode_binary(n: int):
+
+    @staticmethod
+    def encode_binary(n: int) -> str:
         return bin(n)[2:]
 
-    def encode(self, s: int):
+    def encode(self, s: int) -> str:
         k = int(math.ceil(math.log2(self.m)))
     
         quotient = GolombEncoder.encode_unary(s//self.m)
@@ -36,6 +39,7 @@ class GolombEncoder:
         for i in array:
             result.append(self.encode(i))
         return result
+
 
 if __name__ == "__main__":
     for i in range(0,5):
