@@ -36,12 +36,26 @@ class Loader:
             image = np.asarray(Image.open(path))
             images.append(image)
         return images
+
+    def getNaturalImagesAsNumpyArray(self):
+        images = []
+        for path in self.natural_images:
+            image = Image.open(path)
+            images.append((image, path))
+        return images
     
     def getArtificialImages(self):
         images = []
         for path in self.artificial_images:
             image = np.asarray(Image.open(path))
-            images.append(image)
+            images.append((image, path))
+        return images
+
+    def getArtificialImagesAsNumpyArray(self):
+        images = []
+        for path in self.artificial_images:
+            image = Image.open(path)
+            images.append((image, path))
         return images
     
     def imageToBits(self, image):
@@ -49,7 +63,7 @@ class Loader:
         image = np.unpackbits(image)
         
         return image
-    
+
     def entropy(self, img, base=2): # 2 stands for Shannon entropy
         _, counts = np.unique(img, return_counts=True)
         return scipy_entropy(counts, base=base)

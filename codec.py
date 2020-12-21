@@ -1,5 +1,6 @@
 from encoder import GolombEncoder
 from decoder import Decoder
+import numpy as np
 
 
 class GolombCodec:
@@ -13,6 +14,15 @@ class GolombCodec:
 
     def decode(self, encoded_number: str) -> int:
         return self.decoder.decode(encoded_number, self.m)
+
+    def encode_image(self, image):
+        x, y = image.shape
+        result = np.zeros((x, y), dtype=object)
+        for i in range(x):
+            for j in range(y):
+                result[i][j] = self.encode(image[i][j])
+
+        return result
 
 
 if __name__ == "__main__":
