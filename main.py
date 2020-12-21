@@ -38,11 +38,19 @@ def test_natural_images_compression(images):
             print(f'original length: {w * h * 8}, after compression: {length}, compression ratio: {length / (w * h * 8)}')
         print()
 
+
+def test_encoder():
+    for i in range(0, 5):
+        print('i:', i)
+        for s in range(5):
+            print(f's: {s} kod: {GolombEncoder(i).encode(s)}')
+
+
 loader = Loader(natural_images_dir="data/obrazy",
                 artificial_images_dir="data/rozklady")
 
-run_test_images()
-
+# run_test_images()
+test_encoder()
 
 
 loader.generateHistograms()
