@@ -25,17 +25,18 @@ class Decoder:
         if x > t:
             s = s * m + x
         else:
-            print(decodedNumber)
             x = x * 2 + int(decodedNumber[-1])
             s = s * m + x - t
         return s
 
 
 if __name__ == "__main__":
-    print(Decoder().decode("10001",8)) #example call
-
-
-
-
-
-
+    m = [1,2,4,8]
+    codedValues = [["0", "10", "110", "1110", "11110","111110"],
+    ["00", "01", "100", "101", "1100", "1101"],
+    ["000", "001", "010","011","1000", "1001"],
+    ["0000", "0001", "0010", "0011", "0100", "0101"]]
+    for m in codedValues:
+        for code in m:
+            mValue = 2**codedValues.index(m)
+            print("Coded value: ", code, " with m: ", mValue, " equals to ",  Decoder().decode(code, mValue))
