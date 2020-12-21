@@ -17,7 +17,7 @@ class Decoder:
         k = int(math.ceil(math.log2(m)))
         t = 2**k - m
         s = Decoder.countOnes(decodedNumber)
-        if (k - 1) > 0: # if negative or 0 algorithms might fail
+        if (k - 1) > 0:  # if negative or 0 algorithms might fail
             x = Decoder.getBinaryValueFromSelectedPosition(k, decodedNumber)
             decodedNumber = decodedNumber[:-(k)] #k-1 is wrong
         else:

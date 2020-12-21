@@ -1,11 +1,12 @@
-from encoder import GolombEncoder
-from decoder import Decoder
 import numpy as np
+
+from decoder import Decoder
+from encoder import GolombEncoder
 
 
 class GolombCodec:
     def __init__(self, i: int) -> None:
-        self.m = 2**i
+        self.m = 2 ** i
         self.encoder = GolombEncoder(i)
         self.decoder = Decoder()
 
